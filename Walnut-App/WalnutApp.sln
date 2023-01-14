@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WalnutApp", "WalnutApp\WalnutApp.vcxproj", "{21A40790-8D0E-BC06-D64C-6DAC42F6995B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{15A0C35D-0158-05AB-6A5F-DE065636A09B}"
@@ -54,8 +52,5 @@ Global
 		{C038E8D9-ACDA-12B0-9595-260481D69900} = {15A0C35D-0158-05AB-6A5F-DE065636A09B}
 		{154B857C-0182-860D-AA6E-6C109684020F} = {53E47842-3FC8-3998-A828-34EB942B241A}
 		{C0FF640D-2C14-8DBE-F595-301E616989EF} = {53E47842-3FC8-3998-A828-34EB942B241A}
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F9423CA2-469C-40CE-B405-C67F61841D51}
 	EndGlobalSection
 EndGlobal

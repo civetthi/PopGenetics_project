@@ -152,6 +152,9 @@
     <ClInclude Include="src\Walnut\Layer.h" />
     <ClInclude Include="src\Walnut\Random.h" />
     <ClInclude Include="src\Walnut\Timer.h" />
+    <ClInclude Include="src\Walnut\gpop\math.h" />
+    <ClInclude Include="src\Walnut\gpop\reproduction.h" />
+    <ClInclude Include="src\Walnut\gpop\selection.h" />
     <ClInclude Include="src\Walnut\implot\implot.h" />
     <ClInclude Include="src\Walnut\implot\implot_internal.h" />
   </ItemGroup>
@@ -177,6 +180,26 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <ClCompile Include="src\Walnut\Random.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\Main.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\math.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\reproduction.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\selection.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>

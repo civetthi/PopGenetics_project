@@ -7,6 +7,9 @@
     <Filter Include="Input">
       <UniqueIdentifier>{953A660D-014F-8EBE-CAD0-311E36A48AEF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="gpop">
+      <UniqueIdentifier>{BB75977C-A7AC-980D-5099-7E103CAF140F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="implot">
       <UniqueIdentifier>{5A62C004-4604-EBDA-2FBF-FE2E1B00722B}</UniqueIdentifier>
     </Filter>
@@ -24,6 +27,15 @@
     <ClInclude Include="src\Walnut\Layer.h" />
     <ClInclude Include="src\Walnut\Random.h" />
     <ClInclude Include="src\Walnut\Timer.h" />
+    <ClInclude Include="src\Walnut\gpop\math.h">
+      <Filter>gpop</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\gpop\reproduction.h">
+      <Filter>gpop</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Walnut\gpop\selection.h">
+      <Filter>gpop</Filter>
+    </ClInclude>
     <ClInclude Include="src\Walnut\implot\implot.h">
       <Filter>implot</Filter>
     </ClInclude>
@@ -41,6 +53,18 @@
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="src\Walnut\Random.cpp" />
+    <ClCompile Include="src\Walnut\gpop\Main.cpp">
+      <Filter>gpop</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\math.cpp">
+      <Filter>gpop</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\reproduction.cpp">
+      <Filter>gpop</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\selection.cpp">
+      <Filter>gpop</Filter>
+    </ClCompile>
     <ClCompile Include="src\Walnut\implot\implot.cpp">
       <Filter>implot</Filter>
     </ClCompile>

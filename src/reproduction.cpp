@@ -22,7 +22,7 @@ std::vector<float> reproduction(int N, float p) {
     // - First we sum each genotype
     std::vector<float> freq_geno = {0, 0, 0};
     for (int i = 0; i < N; i++)
-        freq_geno[int(genotypes[0][i]) + int(genotypes[1][i])]++;
+        freq_geno[int(!genotypes[0][i]) + int(!genotypes[1][i])]++;
 
     // - Then we determine the frequency by dividing each sum by the population size
     for (int i = 0; i < freq_geno.size(); i++)

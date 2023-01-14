@@ -4,9 +4,14 @@
 #include "Walnut/Image.h"
 #include "Walnut/implot/implot.h"
 
+#include "Walnut/gpop/reproduction.h"
+#include "Walnut/gpop/selection.h"
+
 class ExampleLayer : public Walnut::Layer
 {
 public:
+	int current_T = 20;
+
 	virtual void OnUIRender() override
 	{
 		ImGui::Begin("Settings");
@@ -15,17 +20,49 @@ public:
 		ImGui::InputInt("population size", &N);
 
 		static float p = 0.5f;
-		ImGui::InputFloat("allele frequency", &p, 0.001f, 1.0f, "%.4f");
+		ImGui::InputFloat("initial A allele frequency", &p, 0.001f, 1.0f, "%.4f");
 
 		static int T = 20;
+		
 		ImGui::InputInt("number of generations", &T);
 
 		static float vec4a[4] = { 0.5f, 1.0f, 0.5f, 0.44f };
 		ImGui::InputFloat3("wAA wAa waa", vec4a);
+
+		static float x[1000000], y[1000000];
 		
+		if (ImGui::Button("Simulate"))
+		{
+			// Simulation
+			std::vector<float> selection_weights = {vec4a[0], vec4a[1], vec4a[2]};
+			float allele_freq = p;
+			current_T = T;
+
+			for (int i = 0; i < T; i++) {
+				x[i] = i;
+				y[i] = allele_freq;
+				auto reproduction_genoms = reproduction(N, allele_freq);
+				auto selection_allele_freq = selection(reproduction_genoms, selection_weights);
+				allele_freq = selection_allele_freq[0];
+			}
+		}
+
 		ImGui::End();
 
-		ImGui::Begin("My Window");
+		// Graph
+		ImGui::Begin("Graph");
+		ImPlot::SetNextAxesLimits((double)0.0, (double)20.0, (double)0.0, (double)1.0);
+
+		if (ImPlot::BeginPlot("Allele Frequency", ImVec2(-1, -1))) {
+			
+			ImPlot::SetNextMarkerStyle(ImPlotMarker_Circle);
+			ImPlot::PlotLine("freq allele", x, y, current_T);
+			ImPlot::EndPlot();
+		}
+
+		ImGui::End();
+
+		/* ImPlot Example ---
 		static float xs1[1001], ys1[1001];
 		for (int i = 0; i < 1001; ++i) {
 			xs1[i] = i * 0.001f;
@@ -43,9 +80,9 @@ public:
 			ImPlot::PlotLine("g(x)", xs2, ys2, 20);
 			ImPlot::EndPlot();
 		}
-		ImGui::End();
 
 		ImPlot::ShowDemoWindow();
+		--- */
 	}
 };
 

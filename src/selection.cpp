@@ -7,11 +7,12 @@
 **/
 std::vector<float> selection(std::vector<float> freq_geno, std::vector<float> w) {
     
-    float wAvg = w[0] * freq_geno[0] + w[1] * freq_geno[1] + w[2] * freq_geno[2];
+    float wAvg = (w[0] * freq_geno[0]) + (w[1] * freq_geno[1]) + (w[2] * freq_geno[2]);
+    // freq_all = {freq_A, freq_a}
     std::vector<float> freq_all = {0, 0};
 
-    freq_all[0] = (w[0] * freq_geno[0] + w[1] * freq_geno[1] * 0.5) / wAvg; 
-    freq_all[1] = (0.5 * w[1] * freq_geno[1] + w[2] * freq_geno[2]) / wAvg;
+    freq_all[0] = ((w[0] * freq_geno[0]) + (w[1] * freq_geno[1] * 0.5)) / wAvg; 
+    freq_all[1] = ((0.5 * w[1] * freq_geno[1]) + (w[2] * freq_geno[2])) / wAvg;
     
     // Log error: cout<< 1 - freq_all[0] - freq_all[1] << endl;
     
