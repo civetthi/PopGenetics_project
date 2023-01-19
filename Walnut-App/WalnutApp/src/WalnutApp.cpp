@@ -16,7 +16,7 @@ public:
 	int current_T = 20;
 	int current_S = 1;
 
-	ImVec4 colorList[4] = { ImVec4(0.67f, 0.37f, 0.53f, 1.0f), ImVec4(0.4f, 0.56f, 0.3f, 1.0f), ImVec4(0.2f, 0.76f, 0.5f, 1.0f), ImVec4(0.2f, 0.1f, 0.9f, 1.0f) };
+	ImVec4 colorList[10] = { ImVec4(0.67f, 0.37f, 0.53f, 1.0f), ImVec4(0.4f, 0.56f, 0.3f, 1.0f), ImVec4(0.2f, 0.76f, 0.5f, 1.0f), ImVec4(0.2f, 0.1f, 0.9f, 1.0f), ImVec4(0.1f, 0.8f, 0.3f, 1.0f), ImVec4(0.13f, 0.2f, 0.4f, 1.0f), ImVec4(0.2f, 0.4f, 0.7f, 1.0f), ImVec4(0.8f, 0.8f, 0.2f, 1.0f), ImVec4(0.2f, 0.0f, 0.9f, 1.0f), ImVec4(0.19f, 0.44f, 0.0f, 1.0f) };
 
 	virtual void OnUIRender() override
 	{
@@ -34,8 +34,8 @@ public:
 		static float vec4a[4] = { 0.5f, 1.0f, 0.5f, 0.44f };
 		ImGui::InputFloat3("wAA wAa waa", vec4a);
 
-		static float x[100][1000], y[100][1000];
-		static float x_det[1000], y_det[1000];
+		static float x[100][1000000], y[100][1000000];
+		static float x_det[1000000], y_det[1000000];
 
 		static int S = 1;
 		ImGui::InputInt("number of simulations", &S);
@@ -89,7 +89,7 @@ public:
 		if (ImPlot::BeginPlot("Allele Frequency", ImVec2(-1, -1))) {
 			ImPlot::SetupAxes("Generation", "Allele frequency", ImPlotAxisFlags_AutoFit);
 			for (int j = 0; j < current_S; j++) {
-				ImPlot::PushStyleColor(ImPlotCol_Line, colorList[j % 4]);
+				ImPlot::PushStyleColor(ImPlotCol_Line, colorList[j % 10]);
 				if (markersEnabled) { ImPlot::SetNextMarkerStyle(ImPlotMarker_Circle); }
 				ImPlot::PlotLine("freq allele", x[j], y[j], current_T);
 			}
@@ -126,8 +126,6 @@ public:
 
 		ImPlot::ShowDemoWindow();
 		--- */
-
-		ImPlot::ShowDemoWindow();
 	}
 };
 

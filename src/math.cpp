@@ -6,6 +6,7 @@
 @return: true if sucess OR false if fail
 **/    
 bool bernoulli(float p) {
+    if (p == 0) {return false;}
     // uniform generation of a float between 0 and 1
     float random = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
     return random <= p;
