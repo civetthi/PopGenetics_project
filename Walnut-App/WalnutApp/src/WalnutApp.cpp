@@ -5,6 +5,7 @@
 #include "Walnut/implot/implot.h"
 
 #include "Walnut/gpop/reproduction.h"
+#include "Walnut/gpop/deterministic_reproduction.h"
 #include "Walnut/gpop/selection.h"
 
 #include <vector>
@@ -34,15 +35,20 @@ public:
 		ImGui::InputFloat3("wAA wAa waa", vec4a);
 
 		static float x[100][1000], y[100][1000];
+		static float x_det[1000], y_det[1000];
 
 		static int S = 1;
 		ImGui::InputInt("number of simulations", &S);
 
 		static bool markersEnabled = true;
 		ImGui::Checkbox("enable markers", &markersEnabled);
+
+		static bool showDeterminist = true;
+		ImGui::Checkbox("show determinist curve", &showDeterminist);
 		
 		if (ImGui::Button("Simulate"))
 		{
+			// - Regular curves
 			current_S = S;
 			for (int j = 0; j < S; j++)
 			{
@@ -59,20 +65,40 @@ public:
 					allele_freq = selection_allele_freq[0];
 				}
 			}
+
+			// - Deterministic Curve
+			std::vector<float> selection_weights = { vec4a[0], vec4a[1], vec4a[2] };
+			float allele_freq = p;
+			current_T = T;
+
+			for (int i = 0; i < T; i++) {
+				x_det[i] = i;
+				y_det[i] = allele_freq;
+				auto reproduction_genoms = deterministic_reproduction(allele_freq);
+				auto selection_allele_freq = selection(reproduction_genoms, selection_weights);
+				allele_freq = selection_allele_freq[0];
+			}
 		}
 
 		ImGui::End();
 
-		// Graph
+		// - Graph
 		ImGui::Begin("Graph");
 		ImPlot::SetNextAxesLimits((double)0.0, (double)20.0, (double)0.0, (double)1.0);
 
 		if (ImPlot::BeginPlot("Allele Frequency", ImVec2(-1, -1))) {
+			ImPlot::SetupAxes("Generation", "Allele frequency", ImPlotAxisFlags_AutoFit);
 			for (int j = 0; j < current_S; j++) {
 				ImPlot::PushStyleColor(ImPlotCol_Line, colorList[j % 4]);
 				if (markersEnabled) { ImPlot::SetNextMarkerStyle(ImPlotMarker_Circle); }
 				ImPlot::PlotLine("freq allele", x[j], y[j], current_T);
 			}
+		}
+
+		if (showDeterminist) {
+			ImPlot::PushStyleColor(ImPlotCol_Line, ImVec4(1.0f, 1.0f, 1.0f, 1.0f));
+			if (markersEnabled) { ImPlot::SetNextMarkerStyle(ImPlotMarker_Circle); }
+			ImPlot::PlotLine("freq allele", x_det, y_det, current_T);
 		}
 
 		ImPlot::EndPlot();
@@ -100,6 +126,8 @@ public:
 
 		ImPlot::ShowDemoWindow();
 		--- */
+
+		ImPlot::ShowDemoWindow();
 	}
 };
 

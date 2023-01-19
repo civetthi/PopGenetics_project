@@ -152,6 +152,7 @@
     <ClInclude Include="src\Walnut\Layer.h" />
     <ClInclude Include="src\Walnut\Random.h" />
     <ClInclude Include="src\Walnut\Timer.h" />
+    <ClInclude Include="src\Walnut\gpop\deterministic_reproduction.h" />
     <ClInclude Include="src\Walnut\gpop\math.h" />
     <ClInclude Include="src\Walnut\gpop\reproduction.h" />
     <ClInclude Include="src\Walnut\gpop\selection.h" />
@@ -185,6 +186,11 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
     <ClCompile Include="src\Walnut\gpop\Main.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\deterministic_reproduction.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>

@@ -27,6 +27,9 @@
     <ClInclude Include="src\Walnut\Layer.h" />
     <ClInclude Include="src\Walnut\Random.h" />
     <ClInclude Include="src\Walnut\Timer.h" />
+    <ClInclude Include="src\Walnut\gpop\deterministic_reproduction.h">
+      <Filter>gpop</Filter>
+    </ClInclude>
     <ClInclude Include="src\Walnut\gpop\math.h">
       <Filter>gpop</Filter>
     </ClInclude>
@@ -54,6 +57,9 @@
     </ClCompile>
     <ClCompile Include="src\Walnut\Random.cpp" />
     <ClCompile Include="src\Walnut\gpop\Main.cpp">
+      <Filter>gpop</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Walnut\gpop\deterministic_reproduction.cpp">
       <Filter>gpop</Filter>
     </ClCompile>
     <ClCompile Include="src\Walnut\gpop\math.cpp">
