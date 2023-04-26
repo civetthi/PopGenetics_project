@@ -31,5 +31,3 @@ The parameters are in particular :
 - the selective value or fitness of the genotypes
 - the population size
 - the number of generations
-
-Translated with www.DeepL.com/Translator (free version)
